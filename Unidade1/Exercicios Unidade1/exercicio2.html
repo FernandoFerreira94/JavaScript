@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+        }
+
+        p {
+            margin: 5px
+        }
+
+        #enviar {
+            width: 80px;
+            margin-left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+        <h2>Dados</h2>
+        <form action="">
+            <label for="nome">nome: <input type="text" id="nome" placeholder="Digitie seu first name"></label>
+            <label for="sobreNome">sobreNome: <input type="text" id="sobreNome"
+                    placeholder="Digite your last name"></label>
+            <label for="peso">peso: <input type="text" id="peso" placeholder="DIgite seu peso"></label>
+            <label for="idade">idade: <input type="text" id="idade" placeholder="Digite sua altura"></label>
+
+            <input type="button" value="enviar" id="enviar" onclick="envioDados.enviar()">
+        </form>
+    </div>
+
+    <div>
+        <h2>Dados recuperados</h2>
+    </div>
+    <div id="dadosRecuperados">
+
+
+    </div>
+</body>
+<script src="./exercicio2.js"></script>
+
+</html>

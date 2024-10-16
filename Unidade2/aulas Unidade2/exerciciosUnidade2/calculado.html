@@ -21,8 +21,10 @@
                 id="display">
             <div class="btnCalculadora">
                 <button type="button" class="btnDiv btn btn-dark col" onclick="calculadora.clearDisplay()">C</button>
-                <button type="button" class="btnDiv btn btn-dark col">(</button>
-                <button type="button" class="btnDiv btn btn-dark col">)</button>
+                <button type="button" class="btnDiv btn btn-dark col" id="conR"
+                    onclick="calculadora.calcular('valor',document.getElementById('conR').innerHTML)">(</button>
+                <button type="button" class="btnDiv btn btn-dark col" id="conL"
+                    onclick="calculadora.calcular('valor',document.getElementById('conL').innerHTML)">)</button>
                 <button type="button" class="btnDiv btn btn-dark col"
                     onclick="calculadora.calcular('acao','/')">/</button>
             </div>

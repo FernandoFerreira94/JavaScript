@@ -130,17 +130,108 @@ console.log(mult4(3));
 
 // ------------- função callBack --------
 
-function f1() {
-  console.log("f1");
-}
-function f2() {
-  console.log("f2");
-}
-function f3() {
-  console.log("f3");
+let timeRandom = (min = 1000, max = 4000) => {
+  return parseInt(Math.random() * (max - min) + min);
+};
+
+function f1(callBack) {
+  setTimeout(() => {
+    console.log("f1");
+    if (callBack) callBack();
+  }, timeRandom());
 }
 
-f1();
-f2();
-f3();
-console.log("hellos");
+function f2(callBack) {
+  setTimeout(() => {
+    console.log("f2");
+    if (callBack) callBack();
+  }, timeRandom());
+}
+function f3(callBack) {
+  setTimeout(() => {
+    console.log("f3");
+
+    if (callBack) callBack();
+  }, timeRandom());
+}
+
+// funçao de callback, uma função chama a outra e seguida!
+f1(() => {
+  f2(() => {
+    f3(() => {
+      console.log("hellos");
+    });
+  });
+});
+
+// or
+
+/*
+f1(f1callback);
+
+function f1callback() {
+  f2(f2callback);
+}
+
+function f2callback() {
+  f3(f3calback);
+}
+
+function f3calback() {
+  console.log("hello word");
+}
+*/
+
+// ---------- function imediatas(IIFE) immedatel invoked function expression
+
+// essa função nao interfere em valores no escopo global (função)(parametros)
+(function (nome, sobrenome, idade) {
+  function chamaNome(nome) {
+    return nome;
+  }
+
+  function chamaSobrenome(sobrenome) {
+    return sobrenome;
+  }
+  function chamaIdade(idade) {
+    return idade;
+  }
+
+  console.log(
+    `nome: ${chamaNome(nome)}, sobre Nome: ${chamaSobrenome(
+      sobrenome
+    )} e idade: ${chamaIdade(idade)}`
+  );
+})("Fernando", "Ferreira", 30);
+
+// ------------- função fabrica (function factory) ---------
+
+function criaPeope(nome, sobreNome, idade) {
+  return {
+    nome,
+    sobreNome,
+    idade,
+
+    // usando get nao precisar chamar como função passando os '()'
+    get nomeCompleto() {
+      return `${this.nome} ${this.sobreNome}`;
+    },
+
+    set nomeCompleto(valor) {
+      valor = valor.split(" ");
+      console.log(valor);
+      return valor;
+    },
+
+    falar(assunto) {
+      console.log(
+        `Eu ${this.nomeCompleto}, sou da familia ${this.nomeCompleto[4]}, e tenho ${this.idade} de idade, gosto de falar sobre ${assunto}`
+      );
+    },
+  };
+}
+
+const p1 = criaPeope("Paulo", "Oliveira", 25);
+console.log(p1.nomeCompleto);
+p1.nomeCompleto = "Fernando PEdro de MOrasi Ferreira";
+p1.falar("joga video game");

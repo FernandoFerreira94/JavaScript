@@ -18,6 +18,3 @@ const calculadora = {
     }
   },
 };
-
-calculadora.display.value = eval("8 + (2 * 2)");
-console.log(eval("8+8 +(2*2)"));

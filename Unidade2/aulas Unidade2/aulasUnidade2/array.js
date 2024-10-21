@@ -104,3 +104,58 @@ console.log(objNomes);
 console.table(objIdade);
 console.table(objId);
 console.table(objMap);
+
+// ----------------- reduce -----------
+
+// retorne um array apenas pares
+// retorne um array com o dobro de valor
+const nuemroReduce = [5, 78, 57, 9, 65, 8, 15, 17, 1, 27, 99];
+console.log(nuemroReduce);
+
+let nuemrosPares = nuemroReduce.reduce((acumulador, valor, indice, array) => {
+  if (valor % 2 === 0) {
+    acumulador.push(valor);
+  }
+  return acumulador;
+}, []);
+
+let numeroDobro = nuemroReduce.reduce((acumulador, valor) => {
+  acumulador.push(valor * 2);
+  return acumulador;
+}, []);
+
+console.log(nuemrosPares);
+console.log(numeroDobro);
+/*
+const objMap = [
+  { nome: "Luiz", idade: 30 },
+  { nome: "Oliva", idade: 25 },
+  { nome: "jose", idade: 18 },
+  { nome: "matheus", idade: 55 },
+  { nome: "Fernando", idade: 26 },
+  { nome: "ROmario", idade: 35 },
+  { nome: "Ibraimovick", idade: 51 },
+];
+*/
+
+// retorna a pessoa mais velha
+const maiorIdade = objMap.reduce((acumulador, valor) => {
+  if (acumulador.idade > valor.idade) {
+    return acumulador;
+  }
+  return valor;
+});
+
+console.log(maiorIdade);
+
+// -------------------- forEach --------------
+
+const numeroForEach = [5, 78, 57, 9, 65, 8, 15, 17, 1, 27, 99];
+
+let total = 0;
+const numeroFor = numeroForEach.forEach((valor, indice, array) => {
+  total += valor;
+  return total;
+});
+
+console.log(total);

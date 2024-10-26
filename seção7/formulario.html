@@ -27,21 +27,31 @@
             <div class="dados">
 
                 <label for="nome"> Nome:</label>
-                <input type="text" id="nome">
+                <input type="text" id="nome" onkeyup="cadastro.verificarNome()">
+                <small id="smallNome">Digite seu nome:</small>
 
                 <label for="sobrenome"> Sobrenome:</label>
-                <input type="text" id="sobrenome">
+                <input type="text" id="sobrenome" onkeyup="cadastro.verificarSobrenome()">
+                <small id="smallSobrenome">Digite seu sobrenome:</small>
 
-                <label for="cpf"> Cpf:</label>
-                <input type="text" id="cpf">
+                <label for="cpf">Cpf:</label>
+                <input type="text" id="cpf" value="" onkeyup="cadastro.verificarCpf()" placeholder="000.000.000-00">
+                <small id="smallCpf">Digite seu cpf:</small>
 
                 <label for="usuario"> Usuario:</label>
-                <input type="text" id="usuario">
+                <input type="text" onkeyup="cadastro.verificarUsuario()" id="usuario">
+                <small id="smallUsuario">Digite seu Usuario: <br>
+                    Campo usuario não pode ter caracter "@#$&?" </small>
+                <small id="smallUsuarioCar"> Usuario precisa ter entre 3 á 12 caracters </small>
+
 
                 <label for="senha"> Senha:</label>
-                <input type="password" id="senha">
+                <input type="password" id="senha" onkeyup="cadastro.verificarSenha()" placeholder="******">
+                <button id="btnVer" class="btn btn-primary" onclick="cadastro.verSenha()">ver</button>
+                <small id="smallSenha">Digite sua Senha: <br>
+                    senha precisa ter entre 6 á 12 caracters</small>
 
-                <button class="btn btn-primary" onclick="cadastro.validar()">Cadastrar</button>
+                <button class="btn btn-primary mt-2" onclick="cadastro.validar()">Cadastrar</button>
             </div>
 
         </div>

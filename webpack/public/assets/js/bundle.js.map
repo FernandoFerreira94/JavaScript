@@ -1,0 +1,1 @@
+{"version":3,"file":"bundle.js","mappings":";;;;AAAAA,QAAQ,CAACC,aAAa,CAAC,MAAM,CAAC,CAACC,SAAS,GAAG,OAAO,C","sources":["webpack://teste/./src/index.js"],"sourcesContent":["document.querySelector(\"body\").innerHTML = \"hello\";\r\n"],"names":["document","querySelector","innerHTML"],"sourceRoot":""}
